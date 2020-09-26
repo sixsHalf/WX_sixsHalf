@@ -1,8 +1,13 @@
-import { Component } from 'react'
-import './app.scss'
+import React, { Component } from 'react'
+import { Provider } from 'react-redux'
+
+import configStore from './store'
+
+// import './app.css'
+
+const store = configStore()
 
 class App extends Component {
-
   componentDidMount () {}
 
   componentDidShow () {}
@@ -11,9 +16,14 @@ class App extends Component {
 
   componentDidCatchError () {}
 
-  // this.props.children 是将要会渲染的页面
+  // 在 App 类中的 render() 函数没有实际作用
+  // 请勿修改此函数
   render () {
-    return this.props.children
+    return (
+      <Provider store={store}>
+        {this.props.children}
+      </Provider>
+    )
   }
 }
 
