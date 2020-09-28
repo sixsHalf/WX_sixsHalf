@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text } from '@tarojs/components'
 import MakePlan from '../MakePlan/MakePlan'
+import TabBar from '../../components/TabBar'
 // import './index.scss'
 
 export default class Index extends Component {
@@ -19,6 +20,7 @@ export default class Index extends Component {
     return (
       <View className='index'>
         <MakePlan />
+        <TabBar/>
       </View>
     )
   }
