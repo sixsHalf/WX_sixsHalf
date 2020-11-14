@@ -1,7 +1,9 @@
-import { ADD_PLAN } from '../constants/MakePlan'
+import { ADD_PLAN,MINUS_PLAN } from '../constants/MakePlan'
 
 const INIT_STATE = {
-    actived:true
+    actived:true,
+    str1: 'test',
+    current:0
 }
 export default function MakePlan(state = INIT_STATE,action){
     switch (action.type){
@@ -9,6 +11,11 @@ export default function MakePlan(state = INIT_STATE,action){
             return {
                 ...state,
                 actived:false
+            }
+        case MINUS_PLAN:
+            return {
+                ...state,
+                str1:'changed' + state.str1
             }
         default:
             return state

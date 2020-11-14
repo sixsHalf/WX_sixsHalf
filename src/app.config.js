@@ -1,6 +1,8 @@
 export default {
   pages: [
-    'pages/index/index'
+    'pages/index/index',
+    'pages/MakePlan/MakePlan',
+    'pages/personalCenter/personalCenter'
   ],
   window: {
     backgroundTextStyle: 'light',
