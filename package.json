@@ -9,6 +9,7 @@
     "css": "sass"
   },
   "scripts": {
+    "mock":"mocker ./src/lib/mock",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
@@ -40,7 +41,7 @@
     "@tarojs/react": "3.0.10",
     "@tarojs/runtime": "3.0.10",
     "@tarojs/taro": "3.0.10",
-    "mocker-api": "^2.7.1",
+    "mocker-api": "^2.7.3",
     "mockjs": "^1.1.0",
     "react": "^16.10.0",
     "react-dom": "^16.10.0",
