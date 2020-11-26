@@ -4,6 +4,7 @@ import { View, Text } from '@tarojs/components'
 import { addPlan,minusPlan } from '../../actions/MakePlan'
 import './MakePlan.scss'
 import TabBar from '../../components/TabBar'
+import { ADD_PLAN,MINUS_PLAN } from '../../constants/MakePlan'
 //props接收了返回来的对象
 @connect(
     ({ MakePlan }) => ({
@@ -13,7 +14,7 @@ import TabBar from '../../components/TabBar'
         addPlan(){
             dispatch(addPlan())
         },
-        minusPlan(){
+        ss(){
             dispatch(minusPlan())
         }
     })
@@ -24,11 +25,15 @@ class MakePlan extends Component {
         this.test = this.test.bind(this)
         this.minus = this.minus.bind(this)
     }
+    componentDidUpdate(){
+        console.log(this.props.MakePlan.number)
+    }
     render() { 
         return ( 
             <View className='MakePlan'>
                 <View className='add' onClick={this.test}>add</View>
                 <View onClick={this.minus}>minusPlan</View>
+                <View>{this.props.MakePlan.number}</View>
                 <TabBar initIndex = {1}/>
             </View>
          );
@@ -38,8 +43,7 @@ class MakePlan extends Component {
         console.log(this.props.MakePlan.actived)
     }
     minus(){
-        this.props.minusPlan()
-        console.log(this.props.MakePlan.str1)
+        this.props.ss()
     }
 }
  

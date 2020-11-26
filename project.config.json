@@ -12,7 +12,7 @@
         "minified": false,
         "newFeature": false,
         "coverView": true,
-        "nodeModules": false,
+        "nodeModules": true,
         "autoAudits": false,
         "showShadowRootInWxmlPanel": true,
         "scopeDataCheck": false,
@@ -22,7 +22,7 @@
         "uploadWithSourceMap": true,
         "compileHotReLoad": false,
         "useMultiFrameRuntime": false,
-        "useApiHook": false,
+        "useApiHook": true,
         "babelSetting": {
             "ignore": [],
             "disablePlugins": [],
