@@ -10,7 +10,9 @@ export default class Index extends Component {
   componentWillMount () { }
 
   componentDidMount () { 
-
+    Taro.navigateTo({
+      url:'/pages/addPlan/addPlan'
+    })
   }
 
   componentWillUnmount () { }

@@ -1,0 +1,20 @@
+@import "~taro-ui/dist/style/components/input.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+@import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/loading.scss";
+
+.container{
+    .content{
+        height: 60vh;
+        width: 100%;
+    }
+    .submitBtn{
+        width: 100%;
+        .btn{
+            color: black;
+            width: 40vw;
+            border-radius: 25px 25px;
+            background-color: rgb(0, 122, 204);
+        }
+    }
+}
