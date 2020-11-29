@@ -5,7 +5,7 @@ import { AtInput, AtForm,AtButton,AtCalendar,
         AtModal, AtModalContent,
         AtModalAction } from 'taro-ui'
 import "./addPlan.scss"
-import { loadState,changeSwitch,valueChange } from '../../actions/Addplan'
+import { loadState,changeSwitch,valueChange,chooseDate } from '../../actions/Addplan'
 @connect(
     ({ AddPlan }) => ({
         AddPlan
@@ -19,6 +19,9 @@ import { loadState,changeSwitch,valueChange } from '../../actions/Addplan'
         },
         valueChange(value){
             dispatch(valueChange(value))
+        },
+        chooseDate(e){
+            dispatch(chooseDate(e))
         }
     })
 )
@@ -40,11 +43,14 @@ class AddPlan extends Component {
         // console.log(e)
         this.props.valueChange(value)
     }
+    chooseDateFnc(e){
+        this.props.chooseDate(e)
+    }
     render() { 
         return (
             <View className='container'>
                 <View className='content'>
-                    <AtForm>
+                    <AtForm className = 'formX'>
                         <AtInput
                             name='toDo'
                             title='事件'
@@ -59,25 +65,24 @@ class AddPlan extends Component {
                             type='number'
                             placeholder={this.props.AddPlan.time}
                             onFocus = {this.props.onClose}
+                            value = {this.props.AddPlan.date}
                         />
                             <AtModal 
                                 isOpened = {this.props.AddPlan.isOpened}
-                                onCancel = {this.props.onClose}
                             >
                                 <AtModalContent>
                                     <AtCalendar
                                         className='calender'
-                                        onDayClick = {()=>{console.log('selectDate')}}
+                                        onDayClick = {this.chooseDateFnc.bind(this)}
                                     />
                                 </AtModalContent>
-                                <AtModalAction> <Button>取消</Button> <Button>确定</Button> </AtModalAction>
+                                <AtModalAction> <Button onClick={this.props.onClose}>取消</Button> <Button onClick={this.props.onClose}>确定</Button> </AtModalAction>
                             </AtModal>
+                            <AtButton className='submitBtn' type='primary' size='small'>保存</AtButton>
                     </AtForm>
                 </View>
 
-                <View className='submitBtn'>
-                    <AtButton className='btn' type='primary' size='small'>保存</AtButton>
-                </View>
+
             </View>
         );
     }

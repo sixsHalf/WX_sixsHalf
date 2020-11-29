@@ -1,10 +1,11 @@
-import { LOAD_DATA,CHANGE_SWITCH,VALUE_CHANGE } from '../constants/AddPlan'
+import { LOAD_DATA,CHANGE_SWITCH,VALUE_CHANGE,CHOOSE_DATE } from '../constants/AddPlan'
 
 const InItState = {
     toDoPla:'待办事项',
     toDo:'',
     time:'设置待办时间',
-    isOpened:false
+    isOpened:false,
+    date:''
 }
 
 export default function AddPlan(state = InItState,action){
@@ -23,6 +24,11 @@ export default function AddPlan(state = InItState,action){
             return {
                 ...state,
                 toDo:value
+            }
+        case CHOOSE_DATE:
+            return {
+                ...state,
+                date:value
             }
         default:
             return state
