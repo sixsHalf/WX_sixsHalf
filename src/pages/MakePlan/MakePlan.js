@@ -27,14 +27,13 @@ class MakePlan extends Component {
         this.minus = this.minus.bind(this)
     }
     componentDidUpdate(){
-        console.log(this.props.MakePlan.number)
+        // console.log(this.props.MakePlan.number)
     }
     render() { 
         return ( 
             <View className='MakePlan'>
                 <View className='add' onClick={this.addPlan}>add</View>
-                <View onClick={this.minus}>minusPlan</View>
-                <View>{this.props.MakePlan.number}</View>
+
                 <TabBar initIndex = {1}/>
             </View>
          );

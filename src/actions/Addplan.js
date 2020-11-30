@@ -1,4 +1,8 @@
-import { LOAD_DATA,CHANGE_SWITCH,VALUE_CHANGE,CHOOSE_DATE } from '../constants/AddPlan'
+import { LOAD_DATA,CHANGE_SWITCH,
+    VALUE_CHANGE,CHOOSE_DATE,
+    SAVE_PLAN } from '../constants/AddPlan'
+import { ADDRESS } from '../lib/url'
+import Taro from '@tarojs/taro'
 export const loadState = ()=>{
     return {
         type:LOAD_DATA
@@ -23,5 +27,23 @@ export const chooseDate = (e)=>{
     return {
         type:CHOOSE_DATE,
         value
+    }
+}
+
+export const savePlan = (toDo,date)=>{
+    return async dispatch =>{
+        let res  = await Taro.request({
+            url:ADDRESS + 'SAVE_PLAN',
+            method:'POST',
+            data:{
+                toDo,
+                date
+            }
+        })
+        let { data:success } = res
+        dispatch({
+            type:SAVE_PLAN,
+            success
+        })
     }
 }

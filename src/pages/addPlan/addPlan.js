@@ -5,7 +5,7 @@ import { AtInput, AtForm,AtButton,AtCalendar,
         AtModal, AtModalContent,
         AtModalAction } from 'taro-ui'
 import "./addPlan.scss"
-import { loadState,changeSwitch,valueChange,chooseDate } from '../../actions/Addplan'
+import { loadState,changeSwitch,valueChange,chooseDate,savePlan } from '../../actions/Addplan'
 @connect(
     ({ AddPlan }) => ({
         AddPlan
@@ -22,6 +22,9 @@ import { loadState,changeSwitch,valueChange,chooseDate } from '../../actions/Add
         },
         chooseDate(e){
             dispatch(chooseDate(e))
+        },
+        savePlan(toDo,date){
+            dispatch(savePlan(toDo,date))
         }
     })
 )
@@ -45,6 +48,11 @@ class AddPlan extends Component {
     }
     chooseDateFnc(e){
         this.props.chooseDate(e)
+    }
+    submit(){
+        let {toDo,date} = this.props.AddPlan
+        console.log(toDo,date)
+        this.props.savePlan(toDo,date)
     }
     render() { 
         return (
@@ -78,7 +86,12 @@ class AddPlan extends Component {
                                 </AtModalContent>
                                 <AtModalAction> <Button onClick={this.props.onClose}>取消</Button> <Button onClick={this.props.onClose}>确定</Button> </AtModalAction>
                             </AtModal>
-                            <AtButton className='submitBtn' type='primary' size='small'>保存</AtButton>
+                            <AtButton
+                                className='submitBtn' 
+                                type='primary' 
+                                size='small'
+                                onClick = {this.submit.bind(this)}
+                            >保存</AtButton>
                     </AtForm>
                 </View>
 

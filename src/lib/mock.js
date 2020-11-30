@@ -7,9 +7,9 @@ const data = {
             "number|+1": 202
         }))
     },
-    'GET /proxy1': (req,res)=>{
+    'POST /api/SAVE_PLAN': (req,res)=>{
         res.status('200').json(Mock.mock({
-            "number|+1": 202
+            success: true
         }))
     }
     
