@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import MakePlan from './MakePlan'
 import AddPlan from './AddPlan'
+import PersonalCenter from './personalCenter'
 
 export default combineReducers({
     MakePlan,
-    AddPlan
+    AddPlan,
+    PersonalCenter
 })
