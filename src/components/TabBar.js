@@ -40,7 +40,7 @@ class TabBar extends Component {
                <AtTabBar
                     fixed
                     tabList={[
-                        { title: '首页', iconType: 'bullet-list', text: 'new' },
+                        { title: '工具箱', iconType: 'bullet-list', text: 'new' },
                         { title: 'MakePlan', iconType: 'camera' },
                         { title: '个人中心', iconType: 'folder', text: '100', max: 99 }
                     ]}

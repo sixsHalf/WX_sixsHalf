@@ -1,13 +1,24 @@
 import React, { Component } from 'react'
 import { View, Text } from '@tarojs/components'
-import MakePlan from '../MakePlan/MakePlan'
+import { connect } from 'react-redux'
 import TabBar from '../../components/TabBar'
 import Taro from '@tarojs/taro'
-// import './index.scss'
+import './index.scss'
 
-export default class Index extends Component {
+@connect(
+  ({ Tools }) => ({
+    Tools
+  }),
+  dispatch =>({
 
-  componentWillMount () { }
+  })
+)
+
+export default class Tools extends Component {
+
+  componentWillMount () { 
+    
+  }
 
   componentDidMount () { 
     // Taro.navigateTo({
@@ -24,8 +35,18 @@ export default class Index extends Component {
   componentDidHide () { }
 
   render () {
+    console.log(this.props.Tools)
     return (
-      <View className='index'>
+      <View className='container'>
+        <View className='toolsBox'>
+          {
+            this.props.Tools.toolsList.map((item,index)=>{
+              return (
+                <View className = 'toolItem'>{item}</View>
+              )
+            })
+          }
+        </View>
         <TabBar initIndex={0}/>
       </View>
     )
